@@ -1,5 +1,7 @@
 # Import Python Package
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 # Load DataFrames
 df = pd.read_csv("mimic-iii-sample.csv")
@@ -24,3 +26,8 @@ for col in column_name_list:
 # 1 Find the number of missing values per each column
 df_missing_values = (df.isnull().sum() / len(df)) * 100
 print(df_missing_values)
+
+
+# Heatmap to analysis null values
+sns.heatmap(df.isnull(), cbar=False)
+plt.show()

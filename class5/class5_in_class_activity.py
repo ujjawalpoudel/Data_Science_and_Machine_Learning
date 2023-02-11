@@ -18,4 +18,9 @@ for col in column_name_list:
     number_of_unique_values = len(df[col].unique())
     if number_of_unique_values == 1:
         # 3 Drop the column
-        df = df.drop(column=[col])
+        df = df.drop(columns=[col])
+
+# If you have a column that has missing values greater than a threshold (70 - 80% ) -> drop the column
+# 1 Find the number of missing values per each column
+df_missing_values = (df.isnull().sum() / len(df)) * 100
+print(df_missing_values)
